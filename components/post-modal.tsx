@@ -6,17 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Textarea } from "@/components/ui/textarea"
 import { useSession } from "next-auth/react"
-import { createClient } from "@supabase/supabase-js"
+import { supabase } from '@/supabase/client';
 
 interface PostModalProps {
   isOpen: boolean
   onClose: () => void
 }
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+// const supabase = createClient(
+//   process.env.NEXT_PUBLIC_SUPABASE_URL!,
+//   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+// )
 
 export default function PostModal({ isOpen, onClose }: PostModalProps) {
   const [post, setPost] = useState("")

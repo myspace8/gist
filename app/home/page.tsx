@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
-import { createClient } from "@supabase/supabase-js"
+import { supabase } from '@/supabase/client';
 import { MobileFab } from "@/components/mobile-fab"
 import { PostCard } from "@/components/post-card"
 import { RightSidebar } from "@/components/right-sidebar"
@@ -12,10 +12,10 @@ import PostModal from "@/components/post-modal"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import PostButton from "@/components/postButton"
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+// const supabase = createClient(
+//   process.env.NEXT_PUBLIC_SUPABASE_URL!,
+//   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+// )
 
 export default function HomePage() {
   const { data: session, status } = useSession()

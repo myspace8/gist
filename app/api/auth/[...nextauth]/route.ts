@@ -1,12 +1,7 @@
 // app/api/auth/[...nextauth]/route.ts
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { createClient } from "@supabase/supabase-js"
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+import { supabase } from '@/supabase/client';
 
 export const authOptions = {
   providers: [
