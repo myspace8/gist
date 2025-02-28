@@ -15,7 +15,8 @@ export function middleware(req: NextRequest) {
   }
 
   // Check for the NextAuth session token
-  const isAuthenticated = !!req.cookies.get("next-auth.session-token")
+  // const isAuthenticated = !!req.cookies.get("next-auth.session-token")
+  const isAuthenticated = !!req.cookies.get("__Secure-next-auth.session-token") || !!req.cookies.get("next-auth.session-token")
 
   // Protect /home
   if (pathname === "/home" && !isAuthenticated) {
